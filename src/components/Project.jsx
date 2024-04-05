@@ -7,6 +7,14 @@ import { FaLinkedin } from "react-icons/fa";
 import Reveal from "./animation/Reveal";
 
 function Project() {
+  const [isOpen, setIsOpen] = useState({});
+
+  const toggleProject = (id) => {
+    setIsOpen((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
   const project = [
     {
       id: 0,
@@ -73,12 +81,13 @@ function Project() {
         </h1>
       </div>
       {/*  */}
-      <div className="grid gap-4 cardsgrid">
+      <div className="grid gap-4 cardsgrid relative">
         {project.map((item) => (
           <div key={item.id} className="transform-none" style={{ opacity: 1 }}>
-            <div
+            <motion.div
               className="imgparent bg-gray-700  px-5 pt-6 rounded-md w-[100%] overflow-hidden cursor-pointer relative"
               style={{ aspectRatio: 16 / 9 }}
+              onClick={() => toggleProject(item.id)}
             >
               <motion.div
                 className=""
@@ -95,9 +104,9 @@ function Project() {
                   className="imgrotate rounded-md"
                 />
               </motion.div>
-            </div>
+            </motion.div>
             {/* bottom */}
-            <div>
+            <motion.div>
               <div className="flex justify-center items-center my-3 gap-3">
                 {" "}
                 <h2 className="text-lg font-semibold">{item.name}</h2>
@@ -111,23 +120,41 @@ function Project() {
                   {" "}
                   <div className="flex gap-2 mb-2">
                     {item.tools.map((tool, i) => (
-                      <span
-                        key={i}
-                        className="text-sm font-[200] text-[#0aff9d]"
-                      >
+                      <span key={i} className="text-sm text-[#0aff9d]">
                         {tool}
                       </span>
                     ))}
                   </div>
                 </Reveal>
                 <Reveal>
-                  <p className="font-[200]">
-                    {item.desc[0]}{" "}
-                    <button className="text-[#0aff9d]">Learn More &gt;</button>
-                  </p>
+                  <motion.div
+                    layout
+                    className=""
+                    transition={{
+                      layout: { duration: 1, type: "spring" },
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isOpen[item.id] ? 1 : 0 }}
+                  >
+                    {isOpen[item.id] && (
+                      <motion.div className="font-[200]">
+                        {item.desc.map((p, i) => (
+                          <p key={i} className="">
+                            {p}
+                          </p>
+                        ))}
+                      </motion.div>
+                    )}
+                  </motion.div>
                 </Reveal>
+                <button
+                  className="text-[#0aff9d] font-normal text-start"
+                  onClick={() => toggleProject(item.id)}
+                >
+                  {isOpen[item.id] ? "Show Less" : "Learn More >"}
+                </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>

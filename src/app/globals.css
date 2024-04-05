@@ -4,10 +4,11 @@
 
 body {
   margin: 0;
-  /* font-family: "Prompt", sans-serif; */
+  font-family: "Prompt", sans-serif;
   color: white;
   background: #111111;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;

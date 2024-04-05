@@ -84,7 +84,7 @@ function Experience() {
                 {exp.tools.map((tool, i) => (
                   <span
                     key={i}
-                    className="bg-[#232323] py-1 px-2 rounded-full text-sm"
+                    className="bg-[#232323] py-1 px-2 rounded-full text-sm  mr-2"
                   >
                     {tool}
                   </span>

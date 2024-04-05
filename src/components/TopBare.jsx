@@ -24,15 +24,7 @@ function TopBare() {
           <FaPinterest />
         </span>
       </div>
-      <button
-        className=" border border-[#0aff9d] py-2 rounded-md text-[#0aff9d] px-4 hover:text-[#111111] relative overflow-hidden before:content-[''] before:absolute before:-z-[1] before:h-[100%] before:w-[100%] before:-left-[100%] before:-top-[100%]  before:bg-[#0aff94] hover:before:left-0 hover:before:top-0 "
-        style={{
-          transitionProperty: "color",
-          transitionDuration: "0.2s",
-          transitionTimingFunction: "ease",
-          transitionDelay: "0s",
-        }}
-      >
+      <button className=" border border-[#0aff9d] py-2 rounded-md text-[#0aff9d] px-4 hover:text-[#111111] relative overflow-hidden before:content-[''] before:absolute before:-z-[1] before:h-[100%] before:w-[100%] before:-left-[100%] before:-top-[100%]  before:bg-[#0aff94] hover:before:left-0 hover:before:top-0 ">
         My Resume
       </button>
     </header>
